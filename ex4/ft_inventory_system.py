@@ -16,6 +16,9 @@ def main() -> None:
         item_name = parts[0]
         item_quantity_text = parts[1]
 
+        if item_name == "":
+            print(f"Error - invalid parameter '{arg}'")
+            continue
         if item_name in inventory:
             print(f"Redundant item '{item_name}' - discarding")
             continue
@@ -47,20 +50,14 @@ def main() -> None:
         print(f"Item {item_name} represents {round(percentage, 1)}%")
 
     if inventory:
-        most_item = ""
-        least_item = ""
-        most_quantity = 0
-        least_quantity = 0
+        first_item = list(inventory.keys())[0]
+        most_item = first_item
+        least_item = first_item
+        most_quantity = inventory[first_item]
+        least_quantity = inventory[first_item]
 
         for item_name in inventory:
             item_quantity = inventory[item_name]
-
-            if most_item == "":
-                most_item = item_name
-                least_item = item_name
-                most_quantity = item_quantity
-                least_quantity = item_quantity
-                continue
 
             if item_quantity > most_quantity:
                 most_item = item_name
