@@ -25,6 +25,7 @@ def main() -> None:
         low_score = min(scores)
         average_score = total_score / total_players
 
+        print(f"Scores processed: {scores}")
         print(f"Total players: {total_players}")
         print(f"Total score: {total_score}")
         print(f"Average score: {average_score}")
